@@ -38,7 +38,7 @@ public class AddCategoryController {
 			a1.show();
 		} else {
 
-		
+
 			Category c = new Category(cat_name.getText(), cat_desc.getText());
 			String result = this.store.AddCategory(c);
 
@@ -62,7 +62,6 @@ public class AddCategoryController {
 					stage.setScene(scene);
 					stage.show();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else {

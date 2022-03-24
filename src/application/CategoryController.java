@@ -53,7 +53,6 @@ public class CategoryController implements Initializable {
 			deleteCategoryTab.setContent(node3);
 			updateCategoryTab.setContent(node2);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

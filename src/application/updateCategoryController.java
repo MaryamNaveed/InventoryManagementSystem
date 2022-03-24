@@ -92,7 +92,6 @@ public class updateCategoryController {
 						stage.setScene(scene);
 						stage.show();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				} else {

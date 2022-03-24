@@ -58,7 +58,6 @@ public class ProductController implements Initializable {
 			deleteProductTab.setContent(node3);
 			updateProductTab.setContent(node2);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

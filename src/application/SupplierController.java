@@ -55,7 +55,6 @@ public class SupplierController implements Initializable {
 			deleteSupplierTab.setContent(node3);
 			updateSupplierTab.setContent(node2);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

@@ -42,7 +42,6 @@ public class StockController implements Initializable {
 			availableStockTab.setContent(node1);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

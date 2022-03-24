@@ -80,16 +80,12 @@ public class MainController implements Initializable {
 			Node node3 = (Node) loader3.load();
 			StockController controller3 = loader3.getController();
 			controller3.initData(this.store);
-
-			// homeTab.setContent((Node)
-			// FXMLLoader.load(this.getClass().getResource("home.fxml")));
 			productTab.setContent(node1);
 			categoryTab.setContent(node2);
 			stockTab.setContent(node3);
 			supplierTab.setContent(node4);
 			customerTab.setContent(node5);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

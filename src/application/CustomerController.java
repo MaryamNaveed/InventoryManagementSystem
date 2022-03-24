@@ -55,7 +55,6 @@ public class CustomerController implements Initializable {
 			deleteCustomerTab.setContent(node3);
 			updateCustomerTab.setContent(node2);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     }

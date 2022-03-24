@@ -71,7 +71,6 @@ public class DeleteProductController {
 							stage.setScene(scene);
 							stage.show();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 
