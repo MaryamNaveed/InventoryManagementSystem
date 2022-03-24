@@ -52,11 +52,16 @@ public class ProductController implements Initializable {
 			DeleteProductController controller3= loader3.getController();
 			controller3.initData(this.store);
 		
+			FXMLLoader loader4=new FXMLLoader(getClass().getResource("SearchProduct.fxml"));
+			Node node4=(Node) loader4.load();
+			SearchProductController controller4= loader4.getController();
+			controller4.initData(this.store);
 		
     	
 			addProductTab.setContent(node1);
 			deleteProductTab.setContent(node3);
 			updateProductTab.setContent(node2);
+			searchProductTab.setContent(node4);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
