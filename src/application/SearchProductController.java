@@ -138,7 +138,9 @@ private TextField item_name;
 	ObservableList<AvailableStock> getAllRows(String n){
 		final ObservableList<AvailableStock> rows = FXCollections.observableArrayList();
 		for(int i=0; i<availableStock.size(); i++) {
-				if(availableStock.get(i).getName().contains(n)) {
+				String str1=n.toLowerCase();
+				String str2=availableStock.get(i).getName().toLowerCase();
+				if(str2.contains(str1)) {
 					System.out.println(availableStock.get(i).getName()+"  "+ n);
 					AvailableStock row=new AvailableStock(availableStock.get(i).getName(), availableStock.get(i).getCategory().getName(), String.valueOf(availableStock.get(i).getQuantity()), String.valueOf(availableStock.get(i).getSellingPrice()),String.valueOf(availableStock.get(i).getPurchasedPrice()));
 					rows.add(row);
