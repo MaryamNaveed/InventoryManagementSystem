@@ -21,7 +21,6 @@ public class AddCategoryController {
 	@FXML
 	private TextArea cat_desc;
 
-	
 
 	@FXML
 	private TextField cat_name;
