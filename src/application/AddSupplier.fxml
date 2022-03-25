@@ -45,7 +45,6 @@
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="51.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
@@ -54,37 +53,31 @@
             <RowConstraints maxHeight="47.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Supplier Name" textFill="#b9324d" GridPane.rowIndex="1">
+            <Label text="Supplier Name" textFill="#b9324d">
+               <font>
+                  <Font name="Maiandra GD" size="21.0" />
+               </font>
+            </Label>
+            <TextField GridPane.columnIndex="1" />
+            <Label prefHeight="25.0" prefWidth="138.0" text="Address" textFill="#b9324d" GridPane.rowIndex="1">
                <font>
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label prefHeight="25.0" prefWidth="138.0" text="Address" textFill="#b9324d" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Maiandra GD" size="21.0" />
-               </font>
-            </Label>
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" />
-            <Label prefHeight="25.0" prefWidth="124.0" text="Supplier Id" textFill="#b9324d">
+            <Label prefHeight="25.0" prefWidth="124.0" text="Email" textFill="#b9324d" GridPane.rowIndex="3">
                <font>
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
-            <Label prefHeight="25.0" prefWidth="124.0" text="Email" textFill="#b9324d" GridPane.rowIndex="4">
+            <Label prefHeight="25.0" prefWidth="124.0" text="Phone" textFill="#b9324d" GridPane.rowIndex="2">
                <font>
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
-            <Label prefHeight="25.0" prefWidth="124.0" text="Phone" textFill="#b9324d" GridPane.rowIndex="3">
-               <font>
-                  <Font name="Maiandra GD" size="21.0" />
-               </font>
-            </Label>
-             <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Add" textFill="#bf4040" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+             <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Add" textFill="#bf4040" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <font>
                   <Font size="20.0" />
                </font>
