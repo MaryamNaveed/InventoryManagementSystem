@@ -4,14 +4,14 @@ public class Stock {
 
 	Product product;
 	int quantity;
-	int purchasePrice;
 	
 	
 	
-	public Stock(Product product, int quantity, int purchasePrice) {
+	
+	public Stock(Product product, int quantity) {
 		this.product = product;
 		this.quantity = quantity;
-		this.purchasePrice = purchasePrice;
+		
 	}
 
 
@@ -46,15 +46,7 @@ public class Stock {
 
 
 
-	public int getPurchasePrice() {
-		return purchasePrice;
-	}
-
-
-
-	public void setPurchasePrice(int purchasePrice) {
-		this.purchasePrice = purchasePrice;
-	}
+	
 	
 	
 	

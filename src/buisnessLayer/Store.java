@@ -6,10 +6,46 @@ public class Store {
 	ProductCatalog productCatalog = new ProductCatalog();
 	ArrayList<Customer> customers= new ArrayList<Customer>();
 	ArrayList<Supplier> suppliers = new ArrayList<Supplier>();
+	ArrayList<Review> reviews= new ArrayList<Review>();
+	ArrayList<StockIn> stockins= new ArrayList<StockIn>();
+	ArrayList<Stockout> stockouts= new ArrayList<Stockout>();
 	
 	public Store() {
 		loadData();
 	}
+	
+	
+
+	public ArrayList<Review> getReviews() {
+		return reviews;
+	}
+
+
+
+	public void setReviews(ArrayList<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public String removeStock(Product p, int q, String reason) {
+		String tempres=productCatalog.removeStockofProduct(p, q);
+		if(tempres!=null) {
+			return tempres;
+		}
+		Stockout s=new Stockout(p, q, reason);
+		stockouts.add(s);
+		return null;
+	}
+	
+	public String addStock(Product p, Supplier sup, int price , int q, String reason) {
+		String tempres=productCatalog.addStockofProduct(p, q);
+		if(tempres!=null) {
+			return tempres;
+		}
+		StockIn s=new StockIn(p, q, price, sup, reason);
+		stockins.add(s);
+		return null;
+	}
+
 
 	public void loadData() {
 		productCatalog.loadData();
@@ -66,6 +102,13 @@ public class Store {
 
 	public String AddCategory(Category c) {
 		return productCatalog.AddCategory(c);
+	}
+	
+	public void AddReview(Review r) {
+		Review.tempid++;
+		r.id=Review.tempid;
+		this.reviews.add(r);
+			
 	}
 	
 	public String AddProduct(Product p) {

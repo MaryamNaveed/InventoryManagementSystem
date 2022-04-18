@@ -171,6 +171,37 @@ public class ProductCatalog {
 		}
 		return ind;
 	}
+	
+	public String removeStockofProduct(Product p, int q) {
+		int ind=searchProductIndex(p.getId());
+		if(ind!=-1) {
+			if(products.get(ind).getQuantity()>=q) {
+				products.get(ind).setQuantity(products.get(ind).getQuantity()-q);
+				return null;
+			}
+			else {
+				return "Required quantity product donot exist";
+			}
+		}
+		else {
+			return "Required product donot exist";
+		}
+		
+	}
+	
+	public String addStockofProduct(Product p, int q) {
+		int ind=searchProductIndex(p.getId());
+		if(ind!=-1) {
+
+			products.get(ind).setQuantity(products.get(ind).getQuantity()+q);
+			return null;
+			
+		}
+		else {
+			return "Required product donot exist";
+		}
+		
+	}
 
 
 	void loadData() {
