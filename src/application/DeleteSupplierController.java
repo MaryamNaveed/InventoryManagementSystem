@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import buisnessLayer.Customer;
 import buisnessLayer.Store;
 import buisnessLayer.Supplier;
 import javafx.event.ActionEvent;
@@ -43,6 +42,11 @@ public class DeleteSupplierController {
 	
 	public void initData(Store s) {
 		this.store = s;
+		
+		MenuItem menuItem1 = new MenuItem("");
+		menuItem1.setOnAction(this::HandlesupplierMenu);
+		menuItem1.setStyle("-fx-pref-height: 30px");
+		supplierMenu.getItems().add(menuItem1);
 		
 		for (int i = 0; i < this.store.getSuppliers().size(); i++) {
 			MenuItem menuItem = new MenuItem(this.store.getSuppliers().get(i).getId()+","+this.store.getSuppliers().get(i).getName()+"("+this.store.getSuppliers().get(i).getEmail()+")");

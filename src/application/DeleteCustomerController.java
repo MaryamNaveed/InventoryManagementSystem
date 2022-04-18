@@ -39,6 +39,11 @@ public class DeleteCustomerController {
 	public void initData(Store s) {
 		this.store = s;
 		
+		MenuItem menuItem1 = new MenuItem("");
+		menuItem1.setOnAction(this::HandlecustomerMenu);
+		menuItem1.setStyle("-fx-pref-height: 30px");
+		customerMenu.getItems().add(menuItem1);
+		
 		for (int i = 0; i < this.store.getCustomers().size(); i++) {
 			MenuItem menuItem = new MenuItem(this.store.getCustomers().get(i).getId()+","+this.store.getCustomers().get(i).getName()+"("+this.store.getCustomers().get(i).getEmail()+")");
 			menuItem.setOnAction(this::HandlecustomerMenu);

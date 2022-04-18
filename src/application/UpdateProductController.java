@@ -72,7 +72,7 @@ public class UpdateProductController {
 
 	public void initData(Store s) {
 		this.store = s;
-
+		
 		for (int i = 0; i < this.store.getProductCatalog().getProducts().size(); i++) {
 			MenuItem menuItem = new MenuItem(this.store.getProductCatalog().getProducts().get(i).getName());
 			menuItem.setOnAction(this::HandleproductMenu);

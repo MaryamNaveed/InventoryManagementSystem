@@ -47,6 +47,7 @@ public class UpdateCustomerController {
 
 	public void initData(Store s) {
 		this.store = s;
+	
 		
 		for (int i = 0; i < this.store.getCustomers().size(); i++) {
 			MenuItem menuItem = new MenuItem(this.store.getCustomers().get(i).getId()+","+this.store.getCustomers().get(i).getName()+"("+this.store.getCustomers().get(i).getEmail()+")");

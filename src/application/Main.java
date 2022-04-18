@@ -18,7 +18,7 @@ public class Main extends Application {
 				MainController controller= loader.getController();
 				controller.initData(s);
 		        stage.setTitle("Inventory App");
-		        stage.setScene(new Scene(root, 900, 680));
+		        stage.setScene(new Scene(root, 900, 600));
 		        stage.show();
 
 		} catch(Exception e) {

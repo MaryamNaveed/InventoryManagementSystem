@@ -60,12 +60,19 @@ public class AddProductController {
 
 		this.store = s;
 
+		MenuItem menuItem1 = new MenuItem("");
+		menuItem1.setOnAction(this::HandlecategoryMenu);
+		menuItem1.setStyle("-fx-pref-height: 30px");
+		categoryMenu.getItems().add(menuItem1);
+		
 		for (int i = 0; i < this.store.getProductCatalog().getCategories().size(); i++) {
 			MenuItem menuItem = new MenuItem(this.store.getProductCatalog().getCategories().get(i).getName());
 			menuItem.setOnAction(this::HandlecategoryMenu);
 			menuItem.setStyle("-fx-pref-height: 30px");
 			categoryMenu.getItems().add(menuItem);
 		}
+		
+		quantity.setText("0");
 	}
 
 	private static boolean isDouble(String str) {

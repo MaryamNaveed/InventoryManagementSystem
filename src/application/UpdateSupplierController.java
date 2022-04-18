@@ -61,6 +61,7 @@ public class UpdateSupplierController {
 	public void initData(Store s) {
 		this.store = s;
 		
+		
 		for (int i = 0; i < this.store.getSuppliers().size(); i++) {
 			MenuItem menuItem = new MenuItem(this.store.getSuppliers().get(i).getId()+","+this.store.getSuppliers().get(i).getName()+"("+this.store.getSuppliers().get(i).getEmail()+")");
 			menuItem.setOnAction(this::HandlesupplierMenu);

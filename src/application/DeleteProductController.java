@@ -34,6 +34,11 @@ public class DeleteProductController {
 
 	public void initData(Store s) {
 		this.store = s;
+		
+		MenuItem menuItem1 = new MenuItem("");
+		menuItem1.setOnAction(this::HandleproductMenu);
+		menuItem1.setStyle("-fx-pref-height: 30px");
+		productMenu.getItems().add(menuItem1);
 
 		for (int i = 0; i < this.store.getProductCatalog().getProducts().size(); i++) {
 			MenuItem menuItem = new MenuItem(this.store.getProductCatalog().getProducts().get(i).getName());

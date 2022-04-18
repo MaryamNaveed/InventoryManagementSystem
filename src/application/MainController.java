@@ -80,11 +80,18 @@ public class MainController implements Initializable {
 			Node node3 = (Node) loader3.load();
 			StockController controller3 = loader3.getController();
 			controller3.initData(this.store);
+			
+			FXMLLoader loader6 = new FXMLLoader(getClass().getResource("Review.fxml"));
+			Node node6 = (Node) loader6.load();
+			ReviewController controller6 = loader6.getController();
+			controller6.initData(this.store);
+			
 			productTab.setContent(node1);
 			categoryTab.setContent(node2);
 			stockTab.setContent(node3);
 			supplierTab.setContent(node4);
 			customerTab.setContent(node5);
+			reviewTab.setContent(node6);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -125,18 +132,12 @@ public class MainController implements Initializable {
 		tabpane.getSelectionModel().select(6);
 	}
 
-	@FXML
-	void handleEmployeeButton(ActionEvent event) {
-		tabpane.getSelectionModel().select(7);
-	}
+	
 
 	@FXML
 	void handleReviewButton(ActionEvent event) {
-		tabpane.getSelectionModel().select(8);
+		tabpane.getSelectionModel().select(7);
 	}
 
-	@FXML
-	void handleFAQButton(ActionEvent event) {
-		tabpane.getSelectionModel().select(9);
-	}
+	
 }

@@ -2,7 +2,6 @@ package application;
 
 import java.io.IOException;
 
-import buisnessLayer.Customer;
 import buisnessLayer.Store;
 import buisnessLayer.Supplier;
 import javafx.event.ActionEvent;

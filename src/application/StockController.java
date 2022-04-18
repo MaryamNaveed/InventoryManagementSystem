@@ -22,10 +22,6 @@ public class StockController implements Initializable {
     @FXML
     private Tab deleteStockTab;
 
-    @FXML
-    private Tab updateStockTab;
-    
-	
 	Store store;
 	    
     
@@ -38,8 +34,20 @@ public class StockController implements Initializable {
 			AvailableStockController controller1= loader1.getController();
 			controller1.initData(this.store);
     	
+			FXMLLoader loader2=new FXMLLoader(getClass().getResource("StockIn.fxml"));
+	    	Node node2=(Node) loader2.load();
+			StockInController controller2= loader2.getController();
+			controller2.initData(this.store);
+			
+			FXMLLoader loader3=new FXMLLoader(getClass().getResource("StockOut.fxml"));
+	    	Node node3=(Node) loader3.load();
+			StockOutController controller3= loader3.getController();
+			controller3.initData(this.store);
     	
-			availableStockTab.setContent(node1);
+    	
+			availableStockTab.setContent(node1);			
+			addStockTab.setContent(node2);
+			deleteStockTab.setContent(node3);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
