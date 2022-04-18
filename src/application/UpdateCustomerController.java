@@ -88,18 +88,11 @@ public class UpdateCustomerController {
 
 	@FXML
 	void updateCustomer(ActionEvent event) {
+		try {
 		ArrayList<String> arr=new ArrayList<>(Arrays.asList(Selectedcustomer.getText().split(",")));
 		String reqid=arr.get(0);
 		Customer tempc=this.store.searchCustomer(Integer.parseInt(reqid));
-		if(tempc==null) {
-			Alert a1 = new Alert(AlertType.NONE);
-			
-			a1.setAlertType(AlertType.ERROR);
-
-			a1.setHeaderText("Please select a customer to be updated!!!");
-
-			a1.show();
-		}else {
+		if(tempc!=null) {
 			if (name.getText() == null || name.getText().trim().isEmpty()) {
 				Alert a1 = new Alert(AlertType.NONE);
 	
@@ -165,6 +158,16 @@ public class UpdateCustomerController {
 				}
 	
 			}
+		}
+		}
+		catch (Exception e){
+			Alert a1 = new Alert(AlertType.NONE);
+			
+			a1.setAlertType(AlertType.ERROR);
+
+			a1.setHeaderText("Please select a customer to be updated!!!");
+
+			a1.show();
 		}
 	}	
 }

@@ -103,7 +103,7 @@
                   <Font name="Maiandra GD" size="32.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Update" textFill="#b2394d" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+            <Button mnemonicParsing="false" onAction="#updateSupplier" prefHeight="42.0" prefWidth="106.0" text="Update" textFill="#b2394d" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
                <font>
                   <Font size="20.0" />
                </font>

@@ -77,7 +77,7 @@
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Delete" textFill="#bf4040" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <Button mnemonicParsing="false" onAction="#DeleteSuuplier" prefHeight="42.0" prefWidth="106.0" text="Delete" textFill="#bf4040" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <font>
                   <Font size="20.0" />
                </font>

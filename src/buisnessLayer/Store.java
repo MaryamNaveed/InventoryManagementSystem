@@ -184,6 +184,28 @@ public class Store {
 		}
 	}
 	
+	public String UpdateSupplier(int n,Supplier c) {
+		int ind=searchSupplierIndex(n);
+		
+		for(int i=0; i<suppliers.size(); i++) {
+			if(suppliers.get(i).getEmail().equalsIgnoreCase(c.getEmail()) && i!=ind) {
+				return "This email already exist";
+			}
+			if(suppliers.get(i).getPhone().equalsIgnoreCase(c.getPhone()) && i!=ind) {
+				return "This phone number already exist";
+			}
+		}
+		
+		if(ind!=-1) {
+			c.id=n;
+			suppliers.set(ind, c);
+			return null;
+		}
+		else {
+			return "The required supplier donot exist";
+		}
+	}
+	
 	public String DeleteCustomer(int n) {
 		int ind=searchCustomerIndex(n);
 		
@@ -193,6 +215,18 @@ public class Store {
 		}
 		else {
 			return "The required customer donot exist";
+		}
+	}
+	
+	public String DeleteSupplier(int n) {
+		int ind=searchCustomerIndex(n);
+		
+		if(ind!=-1) {
+			suppliers.remove(ind);
+			return null;
+		}
+		else {
+			return "The required supplier donot exist";
 		}
 	}
 }

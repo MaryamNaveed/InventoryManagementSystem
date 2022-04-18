@@ -58,26 +58,26 @@
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" />
+            <TextField fx:id="name" GridPane.columnIndex="1" />
             <Label prefHeight="25.0" prefWidth="138.0" text="Address" textFill="#b9324d" GridPane.rowIndex="1">
                <font>
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="address" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="phone" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="email" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label prefHeight="25.0" prefWidth="124.0" text="Email" textFill="#b9324d" GridPane.rowIndex="3">
                <font>
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
-            <Label prefHeight="25.0" prefWidth="124.0" text="Phone" textFill="#b9324d" GridPane.rowIndex="2">
+            <Label prefHeight="25.0" prefWidth="124.0" text="Phone(03xxxxxxxxx)" textFill="#b9324d" GridPane.rowIndex="2">
                <font>
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
-             <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="106.0" text="Add" textFill="#bf4040" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+             <Button mnemonicParsing="false" onAction="#addSupplier" prefHeight="42.0" prefWidth="106.0" text="Add" textFill="#bf4040" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <font>
                   <Font size="20.0" />
                </font>

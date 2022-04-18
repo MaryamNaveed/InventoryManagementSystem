@@ -49,6 +49,7 @@ public class DeleteCustomerController {
 
 	@FXML
 	void DeleteCustomer(ActionEvent event) {
+		try {
 		ArrayList<String> arr=new ArrayList<>(Arrays.asList(Selectedcustomer.getText().split(",")));
 		String reqid=arr.get(0);
 		Customer tempc=this.store.searchCustomer(Integer.parseInt(reqid));
@@ -93,7 +94,8 @@ public class DeleteCustomerController {
 			
 
 		}
-		else {
+		}
+		catch(Exception e) {
 			Alert a1 = new Alert(AlertType.NONE);
 
 			a1.setAlertType(AlertType.ERROR);
