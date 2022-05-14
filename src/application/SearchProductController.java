@@ -104,15 +104,7 @@ private TextField item_name;
 		});
 		
 		
-		purchasedPrice.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<AvailableStock, String>, ObservableValue<String>>() {
-
-			@Override
-			public ObservableValue<String> call(CellDataFeatures<AvailableStock, String> arg0) {
-				return new SimpleStringProperty(arg0.getValue().getPurchasedPrice());
-						
-			}
-		});
-		
+			
 		quantity.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<AvailableStock, String>, ObservableValue<String>>() {
 
 			@Override
@@ -128,7 +120,7 @@ private TextField item_name;
 	ObservableList<AvailableStock> getAllRows(){
 		final ObservableList<AvailableStock> rows = FXCollections.observableArrayList();
 		for(int i=0; i<availableStock.size(); i++) {
-				AvailableStock row=new AvailableStock(availableStock.get(i).getName(), availableStock.get(i).getCategory().getName(), String.valueOf(availableStock.get(i).getQuantity()), String.valueOf(availableStock.get(i).getSellingPrice()),String.valueOf(availableStock.get(i).getPurchasedPrice()));
+				AvailableStock row=new AvailableStock(availableStock.get(i).getName(), availableStock.get(i).getCategory().getName(), String.valueOf(availableStock.get(i).getQuantity()), String.valueOf(availableStock.get(i).getSellingPrice()));
 				rows.add(row);
 				
 		}
@@ -141,8 +133,8 @@ private TextField item_name;
 				String str1=n.toLowerCase();
 				String str2=availableStock.get(i).getName().toLowerCase();
 				if(str2.contains(str1)) {
-					System.out.println(availableStock.get(i).getName()+"  "+ n);
-					AvailableStock row=new AvailableStock(availableStock.get(i).getName(), availableStock.get(i).getCategory().getName(), String.valueOf(availableStock.get(i).getQuantity()), String.valueOf(availableStock.get(i).getSellingPrice()),String.valueOf(availableStock.get(i).getPurchasedPrice()));
+					//System.out.println(availableStock.get(i).getName()+"  "+ n);
+					AvailableStock row=new AvailableStock(availableStock.get(i).getName(), availableStock.get(i).getCategory().getName(), String.valueOf(availableStock.get(i).getQuantity()), String.valueOf(availableStock.get(i).getSellingPrice()));
 					rows.add(row);
 				}
 				
@@ -154,7 +146,7 @@ private TextField item_name;
     @FXML
     void searchProduct(ActionEvent event) {
 
-    	System.out.println(item_name.getText());
+    	//System.out.println(item_name.getText());
     	
     	final ObservableList<AvailableStock> rows=getAllRows(item_name.getText());
 		
@@ -165,7 +157,7 @@ private TextField item_name;
     
     @FXML
     void handlekey(KeyEvent event) {
-    	System.out.println(item_name.getText());
+    	//System.out.println(item_name.getText());
     	
     	final ObservableList<AvailableStock> rows=getAllRows(item_name.getText());
 		

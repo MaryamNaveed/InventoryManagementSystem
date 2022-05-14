@@ -1,5 +1,7 @@
 package buisnessLayer;
 
+import java.util.ArrayList;
+
 public class Stock {
 
 	Product product;
@@ -43,7 +45,8 @@ public class Stock {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
+	
+	
 
 
 	

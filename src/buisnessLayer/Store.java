@@ -9,6 +9,7 @@ public class Store {
 	ArrayList<Review> reviews= new ArrayList<Review>();
 	ArrayList<StockIn> stockins= new ArrayList<StockIn>();
 	ArrayList<Stockout> stockouts= new ArrayList<Stockout>();
+	ArrayList<Order> orders=new ArrayList<Order>();
 	
 	public Store() {
 		loadData();
@@ -272,4 +273,77 @@ public class Store {
 			return "The required supplier donot exist";
 		}
 	}
+	
+	public Double calculateTotalCostofOrder(ArrayList<purchasedProducts> p) {
+		Double total=0.0;
+    	for(int i=0; i<p.size(); i++) {
+    		if(p.get(i).p!=null) {
+    			total+=p.get(i).getP().getSellingPrice()*p.get(i).getQuantity();
+    		}
+    		
+    	}
+    	return total;
+	}
+	
+	public String checkProducts(ArrayList<purchasedProducts> p) {
+		if(p.size()==0) {
+			return "No products in order";
+		}
+    	for(int i=0; i<p.size(); i++) {
+    		if(p.get(i).p==null) {
+    			String ret="Product No "+Integer.toString(i+1)+" is incorrect";
+    			return ret;
+    		}
+    		if(p.get(i).getQuantity()==0) {
+    			String ret="Quantity of product No "+Integer.toString(i+1)+" is incorrect";
+    			return ret;
+    		}
+    		
+    		if(p.get(i).getQuantity()>p.get(i).p.getQuantity()) {
+    			String ret="Quantity of product No "+Integer.toString(i+1)+" is more than available, Available="+p.get(i).p.getQuantity();
+    			return ret;
+    		}
+    		
+    		for(int j=i+1; j<p.size(); j++) {
+    			if(p.get(j).p==null) {
+        			String ret="Product No "+Integer.toString(j+1)+" is incorrect";
+        			return ret;
+        		}
+    			if(p.get(i).p.getName()==p.get(j).p.getName()) {
+    				String ret="Product No "+Integer.toString(i+1)+" is repeated product";
+        			return ret;
+    			}
+    		}
+    		
+    	}
+    	return null;
+	}
+	
+	public void AddOrder(Order o) {
+		
+		
+		Supplier.tempid++;
+		o.id=Supplier.tempid;
+		orders.add(o);
+		
+		for(int i=0; i<o.products.size(); i++) {
+			o.products.get(i).p.setQuantity(o.products.get(i).p.getQuantity()-o.products.get(i).quantity);
+		}
+		
+		DisplayallOrders();
+		
+		
+	}
+	
+	public void DisplayallOrders() {
+		System.out.println("---------------------");
+		for(int i=0; i<orders.size(); i++) {
+			System.out.println("Order No: "+(i+1));
+			System.out.println(orders.get(i).getC().getName()+"  "+orders.get(i).getD());
+			for(int j=0; j<orders.get(i).products.size(); j++) {
+				System.out.println(orders.get(i).products.get(j).getP().getName()+ "  "+orders.get(i).products.get(j).getQuantity());
+	    	}
+		}
+	}
+
 }

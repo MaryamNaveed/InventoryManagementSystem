@@ -24,18 +24,17 @@ class AvailableStock {
 	String Category;
 	String quantity;
 	String SellingPrice;
-	String PurchasedPrice;
 	
 	
 	
-	public AvailableStock(String product_Name, String category, String quantity, String sellingPrice,
-			String purchasedPrice) {
+	
+	public AvailableStock(String product_Name, String category, String quantity, String sellingPrice) {
 		
 		this.Product_Name = product_Name;
 		this.Category = category;
 		this.quantity = quantity;
 		this.SellingPrice = sellingPrice;
-		this.PurchasedPrice = purchasedPrice;
+		
 	}
 	
 	
@@ -83,18 +82,6 @@ class AvailableStock {
 		SellingPrice = sellingPrice;
 	}
 
-
-	public String getPurchasedPrice() {
-		return PurchasedPrice;
-	}
-
-
-	public void setPurchasedPrice(String purchasedPrice) {
-		PurchasedPrice = purchasedPrice;
-	}
-
-
-	
 	
 	
 }
@@ -113,9 +100,7 @@ public class AvailableStockController implements Initializable {
     @FXML
     private TableColumn<AvailableStock, String> productName;
 
-    @FXML
-    private TableColumn<AvailableStock, String> purchasedPrice;
-
+    
     @FXML
     private TableColumn<AvailableStock, String> quantity;
 
@@ -178,14 +163,7 @@ public class AvailableStockController implements Initializable {
 		});
 		
 		
-		purchasedPrice.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<AvailableStock, String>, ObservableValue<String>>() {
-
-			@Override
-			public ObservableValue<String> call(CellDataFeatures<AvailableStock, String> arg0) {
-				return new SimpleStringProperty(arg0.getValue().getPurchasedPrice());
-						
-			}
-		});
+		
 		
 		quantity.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<AvailableStock, String>, ObservableValue<String>>() {
 
@@ -202,7 +180,7 @@ public class AvailableStockController implements Initializable {
 	ObservableList<AvailableStock> getAllRows(){
 		final ObservableList<AvailableStock> rows = FXCollections.observableArrayList();
 		for(int i=0; i<availableStock.size(); i++) {
-				AvailableStock row=new AvailableStock(availableStock.get(i).getName(), availableStock.get(i).getCategory().getName(), String.valueOf(availableStock.get(i).getQuantity()), String.valueOf(availableStock.get(i).getSellingPrice()),String.valueOf(availableStock.get(i).getPurchasedPrice()));
+				AvailableStock row=new AvailableStock(availableStock.get(i).getName(), availableStock.get(i).getCategory().getName(), String.valueOf(availableStock.get(i).getQuantity()), String.valueOf(availableStock.get(i).getSellingPrice()));
 				rows.add(row);
 				
 		}

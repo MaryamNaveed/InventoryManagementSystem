@@ -75,7 +75,7 @@ public class StockInController  implements Initializable {
     	
     	
     	MenuItem menuItem2 = new MenuItem("");
-		menuItem2.setOnAction(this::HandleproductMenu);
+		menuItem2.setOnAction(this::HandlesupplierMenu);
 		menuItem2.setStyle("-fx-pref-height: 30px");
 		supplierMenu.getItems().add(menuItem2);
     	

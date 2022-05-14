@@ -86,12 +86,18 @@ public class MainController implements Initializable {
 			ReviewController controller6 = loader6.getController();
 			controller6.initData(this.store);
 			
+			FXMLLoader loader7 = new FXMLLoader(getClass().getResource("PlaceOrder.fxml"));
+			Node node7 = (Node) loader7.load();
+			PlaceOrderController controller7 = loader7.getController();
+			controller7.initData(this.store);
+			
 			productTab.setContent(node1);
 			categoryTab.setContent(node2);
 			stockTab.setContent(node3);
 			supplierTab.setContent(node4);
 			customerTab.setContent(node5);
 			reviewTab.setContent(node6);
+			orderTab.setContent(node7);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
