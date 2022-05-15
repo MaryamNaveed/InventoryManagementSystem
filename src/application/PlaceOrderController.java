@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -28,8 +29,10 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 public class PlaceOrderController {
 
@@ -81,12 +84,100 @@ public class PlaceOrderController {
 		
 		totalamount.setText("0");
 		
-		date1.setValue(LocalDate.now());
+		//date1.setValue(LocalDate.now());
+		
+		
+		date1.setConverter(new StringConverter<LocalDate>() {
+			String pattern="dd-MM-yyyy";
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
+
+            @Override
+            public String toString(LocalDate date) {
+                if (date != null) {
+                	try {
+                		
+                		return dateFormatter.format(date);
+                	}
+                	catch(Exception e) {
+                		return "";
+                	}
+                } else {
+                    return "";
+                }
+				
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                	try {
+                		
+            			return LocalDate.parse(string, dateFormatter);
+            		}
+            		catch(Exception e) {
+            			
+            			
+            			return null;
+            		}
+                    
+                } else {
+                	
+                    return null;
+                }
+            }
+        });
+		
+		
+		
+		
+		
+	}
+	 
+	@FXML
+	void checkDate(MouseEvent event) {
+		try {
+			String d = date1.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+			System.out.println(d);
+		}
+		catch(Exception e) {
+			System.out.println("Exception");
+			Alert a1 = new Alert(AlertType.NONE);
+
+			a1.setAlertType(AlertType.INFORMATION);
+
+			a1.setHeaderText("Incorrect Date Format");
+
+			a1.show();
+		}
+		
+	}
+	
+	
+	private boolean checkDateVal() {
+		try {
+			String d = date1.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+			System.out.println(d);
+		}
+		catch(Exception e) {
+			return false;
+			
+		}
+		return true;
 		
 	}
 
     @FXML
     void addOrder(ActionEvent event) {
+    	if(!this.checkDateVal()) {
+    		Alert a1 = new Alert(AlertType.NONE);
+
+			a1.setAlertType(AlertType.INFORMATION);
+
+			a1.setHeaderText("Incorrect Date Format");
+
+			a1.show();
+    	}
+    	else {
 //    	for(int i=0; i<products.size(); i++) {
 //    		System.out.println(products.get(i).getP().getName()+ "  "+products.get(i).getQuantity());
 //    	}
@@ -148,6 +239,7 @@ public class PlaceOrderController {
 
 			a1.show();
 		}
+    	}
     }
     
     @FXML
@@ -291,7 +383,7 @@ public class PlaceOrderController {
 	    	    public void handle(ActionEvent event) {
 					int thisrow=GridPane.getRowIndex(removebutton)/2-1;
 	    	    	Product p=store.searchProduct(((MenuItem) event.getSource()).getText());
-	    	    	if(p!=null) {
+	    	    	if(p!=null && isInt(field1.getText())) {
 	    	    		field2.setText(Double.toString(p.getSellingPrice()));
 	    	    		purchasedProducts pp = new purchasedProducts(p, Integer.parseInt(field1.getText()));
 	    	    		products.set(thisrow,pp);
@@ -335,7 +427,7 @@ public class PlaceOrderController {
     private static boolean isInt(String str) {
 		try {
 			int d = Integer.parseInt(str);
-			if (d <= 0) {
+			if (d < 0) {
 				return false;
 			}
 

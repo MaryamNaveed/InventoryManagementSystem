@@ -85,7 +85,7 @@
                   <Font name="Maiandra GD" size="21.0" />
                </font>
             </Label>
-            <DatePicker fx:id="date1" GridPane.columnIndex="3" />
+            <DatePicker fx:id="date1"  GridPane.columnIndex="3" />
             <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="2" GridPane.rowSpan="2">
                <content>
                   <GridPane fx:id="allProducts" prefHeight="79.0" prefWidth="617.0">
