@@ -263,7 +263,7 @@ public class Store {
 	}
 	
 	public String DeleteSupplier(int n) {
-		int ind=searchCustomerIndex(n);
+		int ind=searchSupplierIndex(n);
 		
 		if(ind!=-1) {
 			suppliers.remove(ind);
