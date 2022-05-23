@@ -123,7 +123,7 @@ public class StockInController  implements Initializable {
 
 			a1.setAlertType(AlertType.ERROR);
 
-			a1.setHeaderText("Please enter a reason for removing stock");
+			a1.setHeaderText("Please enter a reason for adding stock");
 
 			a1.show();
     	}
@@ -219,7 +219,7 @@ public class StockInController  implements Initializable {
     private static boolean isInt(String str) {
 		try {
 			int d = Integer.parseInt(str);
-			if (d < 0) {
+			if (d <= 0) {
 				return false;
 			}
 
